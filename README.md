@@ -1,6 +1,6 @@
 # Website-Wide Search System – Machine Test
 
-A Laravel 10 + MeiliSearch-based universal search engine that can search across multiple models like BlogPost, Product, Page, and FAQ via a single endpoint.
+A Laravel 12 + MeiliSearch-based universal search engine that can search across multiple models like BlogPost, Product, Page, and FAQ via a single endpoint.
 
 ---
 
