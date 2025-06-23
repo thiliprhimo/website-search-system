@@ -1,0 +1,42 @@
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8088:8000"        # Laravel app at http://localhost:8088
+    volumes:
+      - ./src:/var/www
+    depends_on:
+      - db
+      - scout
+    networks:
+      - app-network
+
+  db:
+    image: mysql:8.0
+    container_name: mysql
+    ports:
+      - "3308:3306"        # Host 3308 → Container 3306 (No conflict with XAMPP)
+    environment:
+      MYSQL_DATABASE: laravel
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - dbdata:/var/lib/mysql
+    networks:
+      - app-network
+
+  scout:
+    image: getmeili/meilisearch:v1.6
+    ports:
+      - "7700:7700"        # MeiliSearch
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  dbdata:
