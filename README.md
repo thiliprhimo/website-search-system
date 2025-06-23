@@ -61,7 +61,7 @@ php artisan scout:import "App\Models\Faq"
 
 API Endpoint
 
-GET /api/search?q=apple
+GET [/api/search?q=a](http://localhost:8088/api/search?q=a)
 
 ---
 
